@@ -91,11 +91,9 @@ def print_rangoli(size):
         print(my_string)
 
     iter_list_second = list(range(1, size))
-    counter = 1
     for i in iter_list_second:
         char_list = list(range(size, i, -1)) + list(range(i + 2, size + 1))
         my_string = ('-'.join([chr(96 + j) for j in char_list]))
-        counter += 1
         padding = '-' * int((max_width - len(my_string)) / 2)
         my_string = padding + my_string + padding
         print(my_string)
