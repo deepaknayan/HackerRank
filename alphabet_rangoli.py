@@ -76,6 +76,29 @@ e-d-c-b-a-b-c-d-e
 
 def print_rangoli(size):
     # your code goes here
+    max_width = (size * 2 - 1) * 2 - 1
+    iter_list_first = list(range(size, 0, -1))# + list(range(2, size + 1))
+    counter = 0
+    for i in iter_list_first:
+        if i < size:
+            char_list = list(range(size, size - counter, -1)) + list(range(size - counter, size + 1))
+            my_string = ('-'.join([chr(96 + j) for j in char_list]))
+        else:
+            my_string = chr(96 + i)
+        counter += 1
+        padding = '-' * int((max_width - len(my_string)) / 2)
+        my_string = padding + my_string + padding
+        print(my_string)
+
+    iter_list_second = list(range(1, size))
+    counter = 1
+    for i in iter_list_second:
+        char_list = list(range(size, i, -1)) + list(range(i + 2, size + 1))
+        my_string = ('-'.join([chr(96 + j) for j in char_list]))
+        counter += 1
+        padding = '-' * int((max_width - len(my_string)) / 2)
+        my_string = padding + my_string + padding
+        print(my_string)
 
 if __name__ == '__main__':
     n = int(input())
